@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-selection/1.2.0/d3-selection.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/britecharts@2.10.0/dist/umd/bar.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"
+            type="text/javascript"/></script>
+
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/britecharts/dist/css/britecharts.min.css"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="bar-container"></div>
+  </body>
+
+  <script>
+    const container = d3.select(".bar-container");
+    const barChart = britecharts.bar();
+
+    const barData = [
+      { name: "Luminous", value: 2 },
+      { name: "Glittering", value: 5 },
+      { name: "Intense", value: 4 },
+      { name: "Radiant", value: 3 },
+    ];
+
+    barChart.margin({ left: 100 }).isHorizontal(true).height(400).width(600);
+
+    container.datum(barData).call(barChart);
+
+    const redrawChart = () => {
+      const newContainerWidth = container.node()
+        ? container.node().getBoundingClientRect().width
+        : false;
+
+      barChart.width(newContainerWidth)
+
+      container.call(barChart)
+    };
+
+    const throttleRedraw = _.throttle(redrawChart,200)
+    window.addEventListener('resize', throttleRedraw);
+  </script>
+</html>
