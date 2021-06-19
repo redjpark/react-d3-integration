@@ -65,12 +65,12 @@ class App extends Component {
 
   handleSelectChild = (name) => {
     console.log(`selected child: ${name}`);
-    this.setState({selectedName: name})
+    this.setState({ selectedName: name });
   };
 
   handleDeselectChild = (name) => {
     console.log(`deselected child: ${name}`);
-    this.setState({selectedName: null})
+    this.setState({ selectedName: null });
   };
 
   // click = () => {
@@ -141,8 +141,11 @@ class App extends Component {
             </Row>
           </Container>
         )}
-        <div className="text-center fw-bold text-uppercase">
-          Gender seleted: {this.state.gender} <br />
+        <div className="container text-center fw-bold text-uppercase mt-2 border-top">
+          <div>
+            {this.state.chartType === "barchart" &&
+              `Gender seleted: ${this.state.gender}`}
+          </div>
           Chart seleted: {this.state.chartType}
         </div>
       </div>
