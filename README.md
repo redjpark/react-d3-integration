@@ -34,3 +34,11 @@ Also, adding new items from the react component will be refected on the d3 scatt
 * Introduction To D3.js with React (Adam Janes)
 * https://britecharts.github.io/britecharts-react/
 * https://www.smashingmagazine.com/2018/02/react-d3-ecosystem/
+
+# git
+```
+pushing an existing repository from the command line
+git remote add origin git@github.com:redjpark/react-d3-integration.git
+git branch -M main
+git push -u origin main
+```
